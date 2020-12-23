@@ -7,13 +7,14 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const mdIterator = require("markdown-it-for-inline");
 
+//addFilter - make it universally available for all template engines
 
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addFilter("sortWorkByDate", function(workDirObj) {
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addFilter("sortWorkByDate", function (workDirObj) {
     const workArr = Object.keys(workDirObj)
-      .map(key => workDirObj[key])
-      .sort((a, b) => (a.lastUpdated > b.lastUpdated) ? -1 : 1)
-    return workArr
+      .map((key) => workDirObj[key])
+      .sort((a, b) => (a.lastUpdated > b.lastUpdated ? -1 : 1));
+    return workArr;
   });
 
   eleventyConfig.addPlugin(pluginRss);
@@ -24,17 +25,21 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
-  eleventyConfig.addFilter("readableDate", dateObj => DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy"))
-  eleventyConfig.addFilter("MMDD", dateObj => DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("LL/dd"))
+  eleventyConfig.addFilter("readableDate", (dateObj) =>
+    DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("dd LLL yyyy")
+  );
+  eleventyConfig.addFilter("MMDD", (dateObj) =>
+    DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("LL/dd")
+  );
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
   });
 
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
-    if( n < 0 ) {
+    if (n < 0) {
       return array.slice(n);
     }
 
@@ -43,41 +48,58 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", require("./_11ty/getTagList"));
 
+  // send below folders directly from input to output directory without processing
+
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("work");
   eleventyConfig.addPassthroughCopy("admin");
 
-  eleventyConfig.addNunjucksShortcode("adjustBrightness", function(base, max, adjustment) {
-    const res =  (parseInt(base) + max*(1 - parseFloat(adjustment))).toPrecision(3)
-    return `${ res }`
-  });
+  eleventyConfig.addNunjucksShortcode(
+    "adjustBrightness",
+    function (base, max, adjustment) {
+      const res = (
+        parseInt(base) +
+        max * (1 - parseFloat(adjustment))
+      ).toPrecision(3);
+      return `${res}`;
+    }
+  );
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
     breaks: true,
-    linkify: true
-  }).use(mdIterator, 'url_new_win', 'link_open', function (tokens, idx) {
-    const [attrName, href] = tokens[idx].attrs.find(attr => attr[0] === 'href')
-    
-    if (href && (!href.includes('franknoirot.co') && !href.startsWith('/') && !href.startsWith('#'))) {
-      tokens[idx].attrPush([ 'target', '_blank' ])
-      tokens[idx].attrPush([ 'rel', 'noopener noreferrer' ])
-    }
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
+    linkify: true,
   })
+    .use(mdIterator, "url_new_win", "link_open", function (tokens, idx) {
+      const [attrName, href] = tokens[idx].attrs.find(
+        (attr) => attr[0] === "href"
+      );
+
+      if (
+        href &&
+        !href.includes("franknoirot.co") &&
+        !href.startsWith("/") &&
+        !href.startsWith("#")
+      ) {
+        tokens[idx].attrPush(["target", "_blank"]);
+        tokens[idx].attrPush(["rel", "noopener noreferrer"]);
+      }
+    })
+    .use(markdownItAnchor, {
+      permalink: true,
+      permalinkClass: "direct-link",
+      permalinkSymbol: "#",
+    });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
-      ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_site/404.html');
+      ready: function (err, browserSync) {
+        const content_404 = fs.readFileSync("_site/404.html");
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.
@@ -87,16 +109,12 @@ module.exports = function(eleventyConfig) {
       },
     },
     ui: false,
-    ghostMode: false
+    ghostMode: false,
   });
 
   return {
-    templateFormats: [
-      "md",
-      "njk",
-      "html",
-      "liquid"
-    ],
+    // Only files with the below extensions will be treated as templates and hence processed
+    templateFormats: ["md", "njk", "html", "liquid"],
 
     // If your site lives in a different subdirectory, change this.
     // Leading or trailing slashes are all normalized away, so don’t worry about those.
@@ -117,7 +135,7 @@ module.exports = function(eleventyConfig) {
       input: ".",
       includes: "_includes",
       data: "_data",
-      output: "_site"
-    }
+      output: "_site",
+    },
   };
 };
