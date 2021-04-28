@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+templateClasses:
+- tmpl-post
+---
+{% if featuredImg %}
+<div class='featured-image'>
+    <img src='{{ featuredImg }}' alt="" />
+    {% if featuredImgCaption %}
+    <figcaption>{{ featuredImgCaption }}</figcaption>
+    {% endif %}
+</div>
+{% endif %}
+<h1>{{ title }}
+    <p>
+            <span class="meta__stats"> {{ content | readingTime }} </span>
+        </p>
+</h1>
+
+{{ content | safe}}
+
+<p><a href="/">← Home</a></p>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ renderData.title or title or metadata.title }} | frank noirot</title>
+    <title>{{ renderData.title or title or metadata.title }} | Been thinking</title>
     <meta name="Description" content="{{ renderData.description or description or metadata.description }}">
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
     {% if 'tmpl-post' in templateClasses %}
@@ -26,7 +26,6 @@
 
     <footer>
       <p>this site was built using <a href='https://11ty.dev' class='theme-1' target='_blank' rel='noopener'>11ty</a> with <a href='https://github.com/features/actions' class='theme-2' target='_blank' rel='noopener'>Github Actions</a>, and is hosted on <a href='https://netlify.com' class='theme-1' target='_blank'>Netlify</a>.</p>
-      <p>all code for the site is freely available on <a href='https://github.com/franknoirot/' class='theme-2' target='_blank' rel='me noopener nofollower'>Github</a>. Please respect licenses on individual projects. </p>
     </footer>
 
     <!-- Current page: {{ page.url | url }} -->

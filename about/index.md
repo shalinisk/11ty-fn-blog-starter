@@ -7,21 +7,30 @@ eleventyNavigation:
   order: 3
 ---
 
-I'm Frank (he/him). I was born outside of Akron, Ohio, a small city a bit south of the Great Lakes in the United States. I now live in the Washington Heights neighborhood of New York City.
+Each one of us has a voice, sometimes drowned in the dinge of everyday life. And on those rare moments of silence and clarity, the voice rings loud and clear, it's demand just one.
+
+Hello
+This is me. This is my voice.
 
 <div class='steezy'>
-  <img alt='Frank sitting on a ledge outside his apartment building, trees in the distance.' src='/img/about-frank.jpg'>
+  <img alt='A woman sitting on a sand dune and looking out into space.' src='/img/abt-img-by-patrick-schneider-unsplash.jpg'>
+  <figcaption><span>Photo by <a href="https://unsplash.com/@patrick_schneider?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Patrick Schneider</a> on <a href="https://unsplash.com/collections/97704366/blog-posts/c0b4e564b40750ac64217675c1ede128?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> </figcaption>
 </div>
 
-My current areas of inquiry include:
+For the more curious ones, my interests include but not limited to:
 
-## web interfaces as social systems
-I work as a UX Designer & Developer at netamorphosis. I love the web. I can't overstate how important I think it is, not only as a communication tool, but as a way of thinking and of treating each other. I don't think the web is quite in our bloodstream as a society yet. I want to help make sure the good metaphors like open source and peer-to-peer are what stick with us, and not the bad ones like surveillance capitalism and anonymous trolling. I've spent the last few years diving head-first into how the web works, and I'll probably spend the rest of my life digging into that dirt further. This is an over-broad "area of inquiry", but that is because this is the root from which I am branching out. I am exploring all the following areas through the lens of distributed systems, user interface design, and data privacy.
+## Reading, thinking and writing
 
-## urban nature
-I attended Ohio State for my undergraduate degree, studying City & Regional Planning and writing a little paper on how the environment should be added into metrics that measure equity in cities. I'm interested in the urban biome, and I'd like to work on bringing city-dwellers closer to the nature all around them. For me that begins with capturing the data on all that urban nature right under our noses, because in our current economic system if it isn't measured it isn't valued. Then I hope to help create means for people to live materially closer to their biome within cities, whether it's on zoning law that demands higher weight tolerances to support future roof gardens, or machines that let coffee shops turn their used grounds into bowls for takeout shops in their neighborhood.
+I read anything that is made up of a string of characters in languages that I can understand. I read billboards, disclaimers, sometimes even terms & conditions.
+I also read essays, books, articles and tweets.
 
-## tool design
-While at Ohio State I founded a student organization called The Maker Club, and I'm happy to see that 6 years out they're still going strong. I still believe wholeheartedly that the tools are available today to fundamentally rethink how production happens. I am very interested in designing tools, both physical and digital, that everyday people can use to make other things. On the physical side I have built and donated a 3D Printer, a four-color t-shirt screenprinting press, and a CNC machine. On the virtual side, I've started building small tools that help automate simple web design tasks, with the hope to build more robust tools for more concrete problems in the future.
+## Tinkering
 
-If you are interested in any of these areas, or are simply looking to connect and share ideas with someone in Manhattan or in cyberspace, please feel free to reach out at <a href='mailto:frank@franknoirot.co'>frank@franknoirot.co</a>.
+I love coming up with new, bizarre ideas for DIY projects, beat out every single detail and then keep refining it so that it never sees the light of next day.
+I have known to do that to my essays too.
+
+## Anything cloud
+
+I love that I get to work as a Cloud Network engineer. It combines 2 of my several passions - network engineering and coding.
+
+If you are interested in any of these areas, or are simply looking to connect, please feel free to reach out at <a href='mailto:beenthinking00@gmail.com'>beenthinking00@gmail.com</a>.

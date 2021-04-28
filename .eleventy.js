@@ -6,6 +6,7 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const mdIterator = require("markdown-it-for-inline");
+const readingTime = require("eleventy-plugin-reading-time");
 
 //addFilter - make it universally available for all template engines
 
@@ -20,6 +21,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(readingTime);
 
   eleventyConfig.setDataDeepMerge(true);
 
